@@ -1,13 +1,22 @@
 
 # What is this?
 
-Counts string of web-component tag names in multiple project.
+A small go command line application which displays statistics 
+for analyzing api flexibility and support decisions on major version updates and consolidation of a component library.
+
+## What it does
+
+Counts string of web-component tag names in multiple projects.
+It has json config file.
+Attempts to parse component-library versions from package.json.
 The output is a markdown table with the count of string occurances by projects.
+Component tag names are parsed from filenames of a dist folder of the library.
 
-Assuming component tag names can be detected from filenames given in config.json.
-The column of the tables is filled out by parsing the package.json of each project.
+# An example of output:
 
-# Why?
+# Components
+| Component | Test project1 v0.0.1 | My second project v0.0.2 |
+| --- | --- | --- |
+| my-component | 4 | 4 |
+* Report generated: 2020-08-28 08:24:48.944914209 +0200 CEST m=+0.001882842
 
-* statistics for analyzing api flexibility
-* support decisions on major updates and consolidation

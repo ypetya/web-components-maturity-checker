@@ -1,0 +1,6 @@
+{
+  "name": "My second project",
+  "dependencies": {
+    "ui-comp-lib": "v0.0.2"
+  }
+}
