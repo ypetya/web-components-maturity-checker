@@ -2,7 +2,7 @@
 # What is this?
 
 A small go command line application which displays statistics 
-for analyzing api flexibility and support decisions on major version updates and consolidation of a component library.
+for analyzing api flexibility to support decisions on major version updates and consolidation of a component library.
 
 ## What it does
 
