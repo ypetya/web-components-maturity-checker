@@ -32,12 +32,12 @@ func Scan(sources *[]model.SourceFolder, components *[]string) Stats {
 		for match := range matches {
 			x, found := stats.Result[*match.component]
 
-      if !found {
-        x=ComponentStat{}
-        x.matches = []Match{}
-        x.Summary = 0
-      }
-      x.Summary += match.count
+			if !found {
+				x = ComponentStat{}
+				x.matches = []Match{}
+				x.Summary = 0
+			}
+			x.Summary += match.count
 			x.matches = append(x.matches, match)
 			stats.Result[*match.component] = x
 		}
@@ -59,7 +59,7 @@ func Scan(sources *[]model.SourceFolder, components *[]string) Stats {
 		close(files)
 	}(folders, files)
 
-	for i,s := range *sources {
+	for i, s := range *sources {
 		walkFolder(s.Folder, &((*sources)[i]), folders)
 	}
 	close(folders)
@@ -84,7 +84,7 @@ func scanFile(file string, components *[]string, source *model.SourceFolder, mat
 			count := strings.Count(line, c)
 			if count > 0 {
 				m := Match{
-					component: & ( (*components)[i]),
+					component: &((*components)[i]),
 					file:      &file,
 					source:    source,
 					line:      lN,
@@ -123,12 +123,12 @@ func filterFiles(folder string, source *model.SourceFolder, interested chan<- fi
 }
 
 func isExcluded(folder string, sourceInfo *model.SourceFolder) bool {
-  for _, x := range (*sourceInfo).ExcludeFolders {
-    if strings.Compare(folder,x) == 0 {
-      return true
-    }
-  }
-  return false
+	for _, x := range (*sourceInfo).ExcludeFolders {
+		if strings.Compare(folder, x) == 0 {
+			return true
+		}
+	}
+	return false
 }
 
 func walkFolder(folder string, sourceInfo *model.SourceFolder, out chan<- folderWithSource) error {
@@ -143,13 +143,13 @@ func walkFolder(folder string, sourceInfo *model.SourceFolder, out chan<- folder
 	f.Close()
 	for _, fileInfo := range list {
 		if fileInfo.IsDir() {
-      folderName := fileInfo.Name()
-      if ! isExcluded(folderName, sourceInfo) && folderName[0]!='.' {
-        err := walkFolder(folder+"/"+folderName, sourceInfo, out)
-        if err != nil {
-          return err
-        }
-      }
+			folderName := fileInfo.Name()
+			if !isExcluded(folderName, sourceInfo) && folderName[0] != '.' {
+				err := walkFolder(folder+"/"+folderName, sourceInfo, out)
+				if err != nil {
+					return err
+				}
+			}
 		}
 	}
 	if err != nil {

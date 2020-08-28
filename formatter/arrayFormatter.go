@@ -23,8 +23,8 @@ func (a ABCOrdered) Less(i, j int) bool {
 	return a[i] < a[j]
 }
 
-func (a* ABCOrdered) Sort() {
-  sort.Sort(a)
+func (a *ABCOrdered) Sort() {
+	sort.Sort(a)
 }
 
 func (a ABCOrdered) String() string {

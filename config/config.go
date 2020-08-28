@@ -11,10 +11,10 @@ type Config struct {
 	// This extension identifies components in dist folder
 	ComponentExtension string `json:"componentExtension"`
 	// Distribution folder of webcomponents
-	ComponentFolder string               `json:"componentFolder"`
-  // Name of component-lib
-  ComponentLibraryName string
-	SourceFolders   []model.SourceFolder `json:"sources"`
+	ComponentFolder string `json:"componentFolder"`
+	// Name of component-lib
+	ComponentLibraryName string
+	SourceFolders        []model.SourceFolder `json:"sources"`
 }
 
 func Load(fileName string) (Config, error) {
