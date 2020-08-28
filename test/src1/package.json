@@ -1,0 +1,6 @@
+{
+  "name": "Test project1",
+  "dependencies": {
+    "ui-comp-lib": "v0.0.1"
+  }
+}

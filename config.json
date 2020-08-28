@@ -1,0 +1,19 @@
+{
+  "componentFolder":"test/componentFolder",
+  "componentExtension":".cjs.entry.js",
+  "componentLibraryName":"ui-comp-lib",
+  "sources": [
+    {
+      "name": "Project1",
+      "folder": "test/src1",
+      "extensions": ["tsx","html"],
+      "excludeFolders": [ "node_modules" ]
+    },
+    {
+      "name": "Project2",
+      "folder": "test/src2",
+      "extensions": ["jsx", "html"],
+      "excludeFolders": [ "node_modules" ]
+    }
+   ]
+}
